@@ -354,10 +354,18 @@ class StyleToolbar(QWidget):
 
     def _format_xml(self):
         try:
-            from xml.dom import minidom
+            try:
+                from defusedxml import minidom
+            except ImportError:
+                # Fallback: defusedxml non e' installato in QGIS; il
+                # documento proviene dai file aperti nell'IDE.
+                from xml.dom import minidom  # nosec - fallback senza defusedxml
 
             old_text = self.editor.text()
-            dom = minidom.parseString(old_text)
+            # Il documento e' il contenuto del file aperto nell'editor.
+            dom = minidom.parseString(  # nosec - input dall'editor dell'IDE
+                old_text
+            )
             pretty = dom.toprettyxml(indent="  ")
             pretty = "\n".join(
                 line for line in pretty.splitlines() if line.strip()

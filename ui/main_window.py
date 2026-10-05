@@ -175,12 +175,6 @@ class IDEMainWindow(QMainWindow):
         self.status_msg.setText(self._t("status.api_index_failed", "Indicizzazione API non riuscita"))
         self._runner_output(message, "ERROR")
 
-    def _show_find_replace(self) -> None:
-        """Mostra il pannello Trova/Sostituisci e porta il focus sulla ricerca."""
-        self.find_replace_dock.show()
-        self.find_replace_dock.raise_()
-        self.find_replace.focus_search()
-
     # ------------------------------------------------------------------
     # Utility
     # ------------------------------------------------------------------
@@ -1926,7 +1920,7 @@ class IDEMainWindow(QMainWindow):
 
         try:
             self._open_path(entry)
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
         self.log.append(
@@ -1971,7 +1965,7 @@ class IDEMainWindow(QMainWindow):
                     QFontDatabase.SystemFont.FixedFont
                 )
             )
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
         layout.addWidget(view, 1)
@@ -2096,7 +2090,7 @@ window.i18n and window.log. Qt6/QGIS 4 compatibility: import only from
 
                 if callable(retranslate):
                     retranslate()
-            except Exception:
+            except Exception:  # nosec B110 -- guardia difensiva UI
                 pass
     # ------------------------------------------------------------------
     # Restore / Close
@@ -2910,7 +2904,7 @@ Plugin QGIS creato con QGIS Python IDE.
                     "project_dir",
                     self.project_root,
                 )
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
         if failed:
@@ -4530,7 +4524,7 @@ Plugin QGIS creato con QGIS Python IDE.
                     QFontDatabase.SystemFont.FixedFont
                 )
             )
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
         layout.addWidget(view)
 

@@ -90,26 +90,6 @@ class PythonConsole(QWidget):
             "Console ready. Namespace: iface, qgis, QgsProject, project.",
         ))
 
-    def _tr(self, key, default=""):
-        if callable(self._translator):
-            return self._translator(key, default)
-        return default or key
-
-    def retranslate(self, translator=None):
-        if translator is not None:
-            self._translator = translator
-        self.clear_button.setText(self._tr("console.clear_output", "Clear output"))
-        self.reset_button.setText(self._tr("console.reset_namespace", "Reset namespace"))
-        self.run_button.setText(self._tr("console.run", "Run"))
-        self.input.setPlaceholderText(self._tr(
-            "console.input_placeholder",
-            "Enter Python. Ctrl+Enter executes; variables remain available.",
-        ))
-        self._write(self._tr(
-            "console.ready",
-            "Console ready. Namespace: iface, qgis, QgsProject, project.",
-        ))
-
     def _bootstrap_namespace(self):
         self.namespace = {"__name__": "__qgis_python_ide_console__"}
         try:
@@ -171,7 +151,10 @@ class PythonConsole(QWidget):
             tree = ast.parse(source, mode="exec")
             compiled = compile(tree, "<qgis-python-ide-console>", "exec")
             with redirect_stdout(stdout), redirect_stderr(stderr):
-                exec(compiled, self.namespace, self.namespace)
+                # Console interattiva: l'utente esegue codice volontariamente.
+                exec(  # nosec - console Python interattiva dell'IDE
+                    compiled, self.namespace, self.namespace
+                )
         except Exception:
             ok = False
             stderr.write(traceback.format_exc())

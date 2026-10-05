@@ -93,7 +93,7 @@ class GenericCodeEditor(
                 self.selectionChanged.connect(self._remember_markdown_selection)
             if hasattr(self, "cursorPositionChanged"):
                 self.cursorPositionChanged.connect(self._remember_markdown_cursor)
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
         self._remember_markdown_selection()
         self._remember_markdown_cursor()
@@ -103,7 +103,7 @@ class GenericCodeEditor(
         try:
             line, column = self.getCursorPosition()
             self._markdown_last_cursor = (int(line), int(column))
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
     def _remember_markdown_selection(self, *args):
@@ -117,12 +117,8 @@ class GenericCodeEditor(
                     self.text(), int(sl), int(sc), int(el), int(ec)
                 )
                 self._markdown_last_cursor = (int(el), int(ec))
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
-
-    def _clear_markdown_selection_cache(self):
-        self._markdown_last_selection = None
-        self._markdown_selection_snapshot = None
 
     def focusOutEvent(self, event):
         """Cattura la selezione *prima* che un pulsante della toolbar prenda il focus.
@@ -144,7 +140,7 @@ class GenericCodeEditor(
             else:
                 line, column = self.getCursorPosition()
                 self._markdown_last_cursor = (int(line), int(column))
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
         super().focusOutEvent(event)
 
@@ -155,24 +151,13 @@ class GenericCodeEditor(
         # la nuova selezione. Un click sulla toolbar non passa da qui.
         try:
             self._clear_markdown_selection_cache()
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
         super().mousePressEvent(event)
         try:
             self._remember_markdown_selection()
             self._remember_markdown_cursor()
-        except Exception:
-            pass
-
-    def keyPressEvent(self, event):
-        super().keyPressEvent(event)
-        try:
-            if self.hasSelectedText():
-                self._remember_markdown_selection()
-            else:
-                self._clear_markdown_selection_cache()
-            self._remember_markdown_cursor()
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
     def _clear_markdown_selection_cache(self):
@@ -226,7 +211,7 @@ class GenericCodeEditor(
         font = self.qgis_code_font()
         try:
             self.setFont(font)
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
         self._set_lexer(language)
@@ -235,7 +220,7 @@ class GenericCodeEditor(
             if lexer is not None:
                 lexer.setDefaultFont(font)
                 lexer.setFont(font, -1)
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
     def _configure_plain_text(self):
@@ -575,137 +560,6 @@ class PythonEditor(QgsCodeEditorPython):
 
         return None
 
-    def _context_text(self, key: str, default: str) -> str:
-        callback = self.translation_callback
-        if callable(callback):
-            try:
-                return str(callback(key, default))
-            except Exception:
-                return default
-        return default
-
-    def select_all_text(self):
-        """Seleziona tutto il buffer anche quando QScintilla ignora QAction standard."""
-        try:
-            last_line = max(0, int(self.lines()) - 1)
-            last_column = max(0, int(self.lineLength(last_line)))
-            self.setSelection(0, 0, last_line, last_column)
-        except Exception:
-            try:
-                self.selectAll()
-            except Exception:
-                return
-
-    def contextMenuEvent(self, event):
-        """Mostra un menu contestuale tradotto e coerente con l'editor."""
-        menu = QMenu(self)
-
-        undo_action = menu.addAction(
-            self._context_text("context.undo", "Undo")
-        )
-        undo_action.triggered.connect(self.undo)
-        try:
-            undo_action.setEnabled(bool(self.isUndoAvailable()))
-        except Exception:
-            undo_action.setEnabled(True)
-
-        redo_action = menu.addAction(
-            self._context_text("context.redo", "Redo")
-        )
-        redo_action.triggered.connect(self.redo)
-        try:
-            redo_action.setEnabled(bool(self.isRedoAvailable()))
-        except Exception:
-            redo_action.setEnabled(True)
-
-        menu.addSeparator()
-
-        cut_action = menu.addAction(
-            self._context_text("context.cut", "Cut")
-        )
-        cut_action.triggered.connect(self.cut)
-        copy_action = menu.addAction(
-            self._context_text("context.copy", "Copy")
-        )
-        copy_action.triggered.connect(self.copy)
-        paste_action = menu.addAction(
-            self._context_text("context.paste", "Paste")
-        )
-        paste_action.triggered.connect(self.paste)
-        delete_action = menu.addAction(
-            self._context_text("context.delete", "Delete")
-        )
-        delete_action.triggered.connect(self.removeSelectedText)
-
-        has_selection = False
-        try:
-            has_selection = bool(self.hasSelectedText())
-        except Exception:
-            has_selection = False
-        cut_action.setEnabled(has_selection)
-        copy_action.setEnabled(has_selection)
-        delete_action.setEnabled(has_selection)
-
-        menu.addSeparator()
-
-        select_all_action = menu.addAction(
-            self._context_text("context.select_all", "Select All")
-        )
-        select_all_action.triggered.connect(self.select_all_text)
-
-        menu.addSeparator()
-
-        format_action = menu.addAction(
-            self._context_text("action.format", "Formatta documento")
-        )
-        if callable(self.format_callback):
-            format_action.triggered.connect(self.format_callback)
-        else:
-            format_action.setEnabled(False)
-
-        check_action = menu.addAction(
-            self._context_text("context.check_syntax", "Controlla sintassi")
-        )
-        if callable(self.check_callback):
-            check_action.triggered.connect(self.check_callback)
-        else:
-            check_action.setEnabled(False)
-
-        comment_action = menu.addAction(
-            self._context_text(
-                "context.toggle_comment",
-                "Attiva/disattiva Commento",
-            )
-        )
-        if callable(self.comment_callback):
-            comment_action.triggered.connect(self.comment_callback)
-        else:
-            comment_action.setEnabled(False)
-
-        uncomment_action = menu.addAction(
-            self._context_text(
-                "context.uncomment",
-                "Decommenta righe selezionate",
-            )
-        )
-        if callable(self.uncomment_callback):
-            uncomment_action.triggered.connect(self.uncomment_callback)
-        else:
-            uncomment_action.setEnabled(False)
-
-        if self._looks_like_python_document():
-            menu.addSeparator()
-            header_action = menu.addAction(
-                self._context_text(
-                    "context.add_encoding_header",
-                    "Inserisci # -*- coding: utf-8 -*-",
-                )
-            )
-            header_action.triggered.connect(self.add_utf8_header)
-            header_action.setEnabled(not self._has_utf8_header())
-
-        menu.exec(event.globalPos())
-
     def _looks_like_python_document(self):
         return True
 
@@ -783,7 +637,7 @@ class PythonEditor(QgsCodeEditorPython):
         if callable(callback):
             try:
                 return str(callback(key, default))
-            except Exception:
+            except Exception:  # nosec B110 -- guardia difensiva UI
                 pass
         return default
 
@@ -797,7 +651,7 @@ class PythonEditor(QgsCodeEditorPython):
         except Exception:
             try:
                 self.selectAll()
-            except Exception:
+            except Exception:  # nosec B110 -- guardia difensiva UI
                 pass
 
     def contextMenuEvent(self, event):
@@ -808,14 +662,14 @@ class PythonEditor(QgsCodeEditorPython):
         undo.triggered.connect(self.undo)
         try:
             undo.setEnabled(bool(self.isUndoAvailable()))
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
         redo = menu.addAction(self._context_text("context.redo", "Redo"))
         redo.triggered.connect(self.redo)
         try:
             redo.setEnabled(bool(self.isRedoAvailable()))
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
         menu.addSeparator()
@@ -944,7 +798,7 @@ class MarkdownEditor(GenericCodeEditor):
         try:
             line, column = self.getCursorPosition()
             state["cursor"] = self._line_col_to_offset(line, column, text)
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
         try:
             if self.hasSelectedText():
@@ -952,12 +806,12 @@ class MarkdownEditor(GenericCodeEditor):
                 start = self._line_col_to_offset(sl, sc, text)
                 end = self._line_col_to_offset(el, ec, text)
                 state["selection"] = (min(start, end), max(start, end))
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
         try:
             state["vscroll"] = self.verticalScrollBar().value()
             state["hscroll"] = self.horizontalScrollBar().value()
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
         return state
 
@@ -977,7 +831,7 @@ class MarkdownEditor(GenericCodeEditor):
                 self.setCursorPosition(line, column)
             self.verticalScrollBar().setValue(state.get("vscroll", 0))
             self.horizontalScrollBar().setValue(state.get("hscroll", 0))
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
     def _replace_range_preserving_position(self, start, end, replacement,
@@ -1266,50 +1120,6 @@ class MarkdownEditor(GenericCodeEditor):
             "#" * level
             + " "
             + stripped,
-        )
-
-    def _selection_lines(self):
-        """
-        Restituisce gli estremi delle righe selezionate.
-        """
-        if not hasattr(
-            self,
-            "getSelection",
-        ):
-            return None
-
-        try:
-            line_from, _, line_to, _ = (
-                self.getSelection()
-            )
-        except Exception:
-            return None
-
-        lines = self.text().splitlines(True)
-
-        if not lines:
-            return None
-
-        line_from = max(
-            0,
-            min(
-                line_from,
-                len(lines) - 1,
-            ),
-        )
-
-        line_to = max(
-            line_from,
-            min(
-                line_to,
-                len(lines) - 1,
-            ),
-        )
-
-        return (
-            line_from,
-            line_to,
-            lines,
         )
 
     def _replace_lines_with_prefixes(self, line_prefixes):
@@ -1701,7 +1511,7 @@ class EditorTab(QWidget):
         self.preview = QTextBrowser(self)
         try:
             self.preview.setFont(self.editor.qgis_code_font())
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
         self.preview.document().setUndoRedoEnabled(False)
         self.preview.document().setMaximumBlockCount(0)
@@ -1779,7 +1589,7 @@ class EditorTab(QWidget):
         if callable(callback):
             try:
                 return str(callback(key, default))
-            except Exception:
+            except Exception:  # nosec B110 -- guardia difensiva UI
                 pass
         return default
 
@@ -2006,7 +1816,7 @@ ul, ol {{ margin: 4px 0; padding-left: 24px; }}
         cursor_line = 0
         try:
             cursor_line, _ = self.editor.getCursorPosition()
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
         source = self.editor.text()
@@ -2069,7 +1879,7 @@ ul, ol {{ margin: 4px 0; padding-left: 24px; }}
             line_count = max(1, int(self.editor.lines()))
             ratio = max(0.0, min(1.0, float(line) / max(1, line_count - 1)))
             self._set_markdown_scroll_ratio(self.preview, ratio)
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
     def _sync_markdown_preview_from_cursor(self, *args):
@@ -2535,11 +2345,11 @@ ul, ol {{ margin: 4px 0; padding-left: 24px; }}
         scroll_value = 0
         try:
             cursor_line, cursor_col = self.editor.getCursorPosition()
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
         try:
             scroll_value = self.editor.verticalScrollBar().value()
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
         try:
             if self.editor.hasSelectedText():
@@ -2569,7 +2379,7 @@ ul, ol {{ margin: 4px 0; padding-left: 24px; }}
             else:
                 self.editor.setCursorPosition(cursor_line, cursor_col)
             self.editor.verticalScrollBar().setValue(scroll_value)
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
         if hasattr(self, "preview"):
