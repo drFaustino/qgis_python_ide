@@ -1,0 +1,12 @@
+{
+  "snapshot": "💾 Snapshot file corrente",
+  "history": "🕘 Mostra cronologia…",
+  "no_path": "Salva prima il file: gli snapshot hanno bisogno di un percorso.",
+  "snap_done": "Snapshot creato",
+  "restore": "Ripristina",
+  "open": "Apri",
+  "empty": "Nessuno snapshot per questo file.",
+  "confirm_restore": "Ripristinare questo snapshot sovrascrivendo il file corrente?",
+  "title": "Cronologia locale",
+  "restored": "Snapshot ripristinato"
+}

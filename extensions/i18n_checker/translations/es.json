@@ -1,0 +1,12 @@
+{
+  "menu": "🌐 Comprobar traducciones i18n",
+  "title": "Comprobación de traducciones i18n",
+  "no_project": "No hay ningún proyecto abierto: abre primero un proyecto en el IDE antes de comprobar las traducciones.",
+  "used_missing": "Claves usadas en el código pero ausentes en los archivos de traducción",
+  "lang_missing": "Claves ausentes en un idioma",
+  "orphans": "Claves presentes en los JSON pero no usadas en el código",
+  "ok": "Sin problemas: claves usadas y traducciones alineadas.",
+  "scan_error": "Error durante el análisis",
+  "summary": "Claves usadas en el código: {used} — Idiomas: {langs}",
+  "not_found": "Carpeta de traducciones no encontrada en el proyecto (buscada en resources/i18n, resources/translations, translations, i18n)."
+}

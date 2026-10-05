@@ -1,0 +1,12 @@
+{
+  "menu": "🌐 Check i18n translations",
+  "title": "i18n translation check",
+  "no_project": "No project open: open a project in the IDE first before checking translations.",
+  "used_missing": "Keys used in code but missing from translation files",
+  "lang_missing": "Keys missing in one language",
+  "orphans": "Keys present in JSON but unused in code",
+  "ok": "No issues: used keys and translations are aligned.",
+  "scan_error": "Error while scanning",
+  "summary": "Keys used in code: {used} — Languages: {langs}",
+  "not_found": "Translations folder not found in the project (searched in resources/i18n, resources/translations, translations, i18n)."
+}

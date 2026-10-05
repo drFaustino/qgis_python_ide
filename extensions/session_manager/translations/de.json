@@ -1,0 +1,11 @@
+{
+  "save": "💾 Sitzung speichern…",
+  "load": "📂 Sitzung laden…",
+  "open": "Öffnen",
+  "delete": "Löschen",
+  "empty": "Keine Sitzungen gespeichert.",
+  "name_prompt": "Sitzungsname:",
+  "saved": "Sitzung gespeichert",
+  "deleted": "Sitzung gelöscht",
+  "title": "Sitzungen"
+}

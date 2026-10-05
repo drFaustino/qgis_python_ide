@@ -1,0 +1,12 @@
+{
+  "snapshot": "💾 Snapshot current file",
+  "history": "🕘 Show history…",
+  "no_path": "Save the file first: snapshots need a path.",
+  "snap_done": "Snapshot created",
+  "restore": "Restore",
+  "open": "Open",
+  "empty": "No snapshots for this file.",
+  "confirm_restore": "Restore this snapshot overwriting the current file?",
+  "title": "Local history",
+  "restored": "Snapshot restored"
+}

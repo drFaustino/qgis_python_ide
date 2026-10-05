@@ -1,0 +1,14 @@
+{
+  "menu": "📝 TODO/FIXME-Panel",
+  "dock": "Kontrollmenü",
+  "refresh": "🔄 Aktualisieren",
+  "empty": "Keine Platzhalter im Projekt gefunden.",
+  "no_project": "Öffnen Sie zuerst ein Projekt.",
+  "clear": "🗑 Löschen",
+  "confirm_clear": "Alle im Panel aufgelisteten Platzhalter löschen?",
+  "toggle": "📋 Kontrollmenü anzeigen",
+  "col_type": "Typ",
+  "col_pos": "Position",
+  "col_note": "Anmerkung",
+  "goto_line": "➤ Zur Zeile"
+}

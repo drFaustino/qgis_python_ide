@@ -1,0 +1,11 @@
+{
+  "save": "💾 Guardar sesión…",
+  "load": "📂 Cargar sesión…",
+  "open": "Abrir",
+  "delete": "Eliminar",
+  "empty": "No hay sesiones guardadas.",
+  "name_prompt": "Nombre de la sesión:",
+  "saved": "Sesión guardada",
+  "deleted": "Sesión eliminada",
+  "title": "Sesiones"
+}

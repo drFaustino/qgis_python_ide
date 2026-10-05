@@ -1,0 +1,12 @@
+{
+  "snapshot": "💾 Instantané du fichier courant",
+  "history": "🕘 Afficher l'historique…",
+  "no_path": "Enregistrez d'abord le fichier : les instantanés nécessitent un chemin.",
+  "snap_done": "Instantané créé",
+  "restore": "Restaurer",
+  "open": "Ouvrir",
+  "empty": "Aucun instantané pour ce fichier.",
+  "confirm_restore": "Restaurer cet instantané en écrasant le fichier actuel ?",
+  "title": "Historique local",
+  "restored": "Instantané restauré"
+}

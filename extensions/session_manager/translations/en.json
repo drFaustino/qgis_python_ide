@@ -1,0 +1,11 @@
+{
+  "save": "💾 Save session…",
+  "load": "📂 Load session…",
+  "open": "Open",
+  "delete": "Delete",
+  "empty": "No saved sessions.",
+  "name_prompt": "Session name:",
+  "saved": "Session saved",
+  "deleted": "Session deleted",
+  "title": "Sessions"
+}

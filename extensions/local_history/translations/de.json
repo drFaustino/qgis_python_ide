@@ -1,0 +1,12 @@
+{
+  "snapshot": "💾 Momentaufnahme der aktuellen Datei",
+  "history": "🕘 Verlauf anzeigen…",
+  "no_path": "Datei zuerst speichern: Momentaufnahmen brauchen einen Pfad.",
+  "snap_done": "Momentaufnahme erstellt",
+  "restore": "Wiederherstellen",
+  "open": "Öffnen",
+  "empty": "Keine Momentaufnahmen für diese Datei.",
+  "confirm_restore": "Diese Momentaufnahme wiederherstellen und die aktuelle Datei überschreiben?",
+  "title": "Lokaler Verlauf",
+  "restored": "Momentaufnahme wiederhergestellt"
+}

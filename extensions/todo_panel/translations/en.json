@@ -1,0 +1,14 @@
+{
+  "menu": "📝 TODO/FIXME panel",
+  "dock": "Control menu",
+  "refresh": "🔄 Refresh",
+  "empty": "No placeholders found in the project.",
+  "no_project": "Open a project first.",
+  "clear": "🗑 Clear",
+  "confirm_clear": "Clear all placeholders listed in the panel?",
+  "toggle": "📋 Show control menu",
+  "col_type": "Type",
+  "col_pos": "Position",
+  "col_note": "Note",
+  "goto_line": "➤ Go to line"
+}

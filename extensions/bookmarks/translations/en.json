@@ -1,0 +1,10 @@
+{
+  "add": "🔖 Add bookmark",
+  "manage": "📑 Manage bookmarks…",
+  "title": "Bookmarks",
+  "go": "Go",
+  "clear": "Clear all",
+  "empty": "No bookmarks.",
+  "added": "Bookmark added",
+  "no_path": "Save the file first: bookmarks need a path."
+}

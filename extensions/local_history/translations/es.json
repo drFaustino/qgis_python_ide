@@ -1,0 +1,12 @@
+{
+  "snapshot": "💾 Instantánea del archivo actual",
+  "history": "🕘 Mostrar historial…",
+  "no_path": "Guarda primero el archivo: las instantáneas necesitan una ruta.",
+  "snap_done": "Instantánea creada",
+  "restore": "Restaurar",
+  "open": "Abrir",
+  "empty": "No hay instantáneas para este archivo.",
+  "confirm_restore": "¿Restaurar esta instantánea sobrescribiendo el archivo actual?",
+  "title": "Historial local",
+  "restored": "Instantánea restaurada"
+}

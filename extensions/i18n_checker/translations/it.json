@@ -1,0 +1,12 @@
+{
+  "menu": "🌐 Controlla traduzioni i18n",
+  "title": "Controllo traduzioni i18n",
+  "no_project": "Nessun progetto aperto: apri prima un progetto nell'IDE per poter controllare le traduzioni.",
+  "used_missing": "Chiavi usate ma mancanti nei file di traduzione",
+  "lang_missing": "Chiavi assenti in una lingua",
+  "orphans": "Chiavi presenti nei JSON ma non usate nel codice",
+  "ok": "Nessun problema rilevato: chiavi usate e traduzioni allineate.",
+  "scan_error": "Errore durante la scansione",
+  "summary": "Chiavi usate nel codice: {used} — Lingue: {langs}",
+  "not_found": "Cartella traduzioni non trovata nel progetto (cercata in resources/i18n, resources/translations, translations, i18n)."
+}

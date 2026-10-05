@@ -1,0 +1,14 @@
+{
+  "menu": "📝 Pannello TODO/FIXME",
+  "dock": "Menu di controllo",
+  "refresh": "🔄 Aggiorna",
+  "empty": "Nessun segnaposto trovato nel progetto.",
+  "no_project": "Apri prima un progetto.",
+  "clear": "🗑 Cancella",
+  "confirm_clear": "Cancellare tutti i segnaposto elencati nel pannello?",
+  "toggle": "📋 Mostra menu di controllo",
+  "col_type": "Tipo",
+  "col_pos": "Posizione",
+  "col_note": "Nota",
+  "goto_line": "➤ Vai alla riga"
+}

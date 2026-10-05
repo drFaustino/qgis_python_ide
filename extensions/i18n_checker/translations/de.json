@@ -1,0 +1,12 @@
+{
+  "menu": "🌐 i18n-Übersetzungen prüfen",
+  "title": "i18n-Übersetzungsprüfung",
+  "no_project": "Kein Projekt geöffnet: Öffnen Sie zuerst ein Projekt in der IDE, bevor Sie Übersetzungen prüfen.",
+  "used_missing": "Im Code verwendete Schlüssel, die in den Übersetzungsdateien fehlen",
+  "lang_missing": "Schlüssel, die in einer Sprache fehlen",
+  "orphans": "Schlüssel in den JSON-Dateien, die im Code nicht verwendet werden",
+  "ok": "Keine Probleme: verwendete Schlüssel und Übersetzungen sind abgeglichen.",
+  "scan_error": "Fehler beim Scannen",
+  "summary": "Im Code verwendete Schlüssel: {used} — Sprachen: {langs}",
+  "not_found": "Übersetzungsordner im Projekt nicht gefunden (gesucht in resources/i18n, resources/translations, translations, i18n)."
+}

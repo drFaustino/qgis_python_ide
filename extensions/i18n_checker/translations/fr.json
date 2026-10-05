@@ -1,0 +1,12 @@
+{
+  "menu": "🌐 Vérifier les traductions i18n",
+  "title": "Vérification des traductions i18n",
+  "no_project": "Aucun projet ouvert : ouvrez d'abord un projet dans l'IDE avant de vérifier les traductions.",
+  "used_missing": "Clés utilisées dans le code mais absentes des fichiers de traduction",
+  "lang_missing": "Clés absentes dans une langue",
+  "orphans": "Clés présentes dans les JSON mais non utilisées dans le code",
+  "ok": "Aucun problème : clés utilisées et traductions alignées.",
+  "scan_error": "Erreur pendant l'analyse",
+  "summary": "Clés utilisées dans le code : {used} — Langues : {langs}",
+  "not_found": "Dossier de traductions introuvable dans le projet (recherché dans resources/i18n, resources/translations, translations, i18n)."
+}

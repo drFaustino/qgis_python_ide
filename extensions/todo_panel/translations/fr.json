@@ -1,0 +1,14 @@
+{
+  "menu": "📝 Panneau TODO/FIXME",
+  "dock": "Menu de contrôle",
+  "refresh": "🔄 Actualiser",
+  "empty": "Aucun marqueur trouvé dans le projet.",
+  "no_project": "Ouvrez d'abord un projet.",
+  "clear": "🗑 Effacer",
+  "confirm_clear": "Effacer tous les marqueurs listés dans le panneau ?",
+  "toggle": "📋 Afficher le menu de contrôle",
+  "col_type": "Type",
+  "col_pos": "Position",
+  "col_note": "Note",
+  "goto_line": "➤ Aller à la ligne"
+}

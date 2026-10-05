@@ -1,0 +1,14 @@
+{
+  "menu": "📝 Panel TODO/FIXME",
+  "dock": "Menú de control",
+  "refresh": "🔄 Actualizar",
+  "empty": "No se encontraron marcadores en el proyecto.",
+  "no_project": "Abre primero un proyecto.",
+  "clear": "🗑 Borrar",
+  "confirm_clear": "¿Borrar todos los marcadores listados en el panel?",
+  "toggle": "📋 Mostrar menú de control",
+  "col_type": "Tipo",
+  "col_pos": "Posición",
+  "col_note": "Nota",
+  "goto_line": "➤ Ir a la línea"
+}

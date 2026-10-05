@@ -1,0 +1,10 @@
+{
+  "add": "🔖 Aggiungi segnalibro",
+  "manage": "📑 Gestisci segnalibri…",
+  "title": "Segnalibri",
+  "go": "Vai",
+  "clear": "Cancella tutti",
+  "empty": "Nessun segnalibro.",
+  "added": "Segnalibro aggiunto",
+  "no_path": "Salva prima il file: i segnalibri hanno bisogno di un percorso."
+}

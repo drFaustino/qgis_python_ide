@@ -1,0 +1,10 @@
+{
+  "add": "🔖 Ajouter un signet",
+  "manage": "📑 Gérer les signets…",
+  "title": "Signets",
+  "go": "Aller",
+  "clear": "Tout effacer",
+  "empty": "Aucun signet.",
+  "added": "Signet ajouté",
+  "no_path": "Enregistrez d'abord le fichier : les signets nécessitent un chemin."
+}

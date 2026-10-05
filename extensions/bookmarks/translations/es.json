@@ -1,0 +1,10 @@
+{
+  "add": "🔖 Añadir marcador",
+  "manage": "📑 Gestionar marcadores…",
+  "title": "Marcadores",
+  "go": "Ir",
+  "clear": "Borrar todos",
+  "empty": "Sin marcadores.",
+  "added": "Marcador añadido",
+  "no_path": "Guarda primero el archivo: los marcadores necesitan una ruta."
+}
