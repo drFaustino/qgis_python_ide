@@ -33,7 +33,7 @@ class BookmarksExtension(ExtensionBase):
                 self._window.log.append(
                     f"Bookmarks: {message}", level
                 )
-            except Exception:
+            except Exception:  # nosec B110 -- guardia difensiva UI
                 pass
 
     # ------------------------------------------------------------------
@@ -117,7 +117,7 @@ class BookmarksExtension(ExtensionBase):
             if tab is not None and hasattr(tab, "goto_line"):
                 try:
                     tab.goto_line(line)
-                except Exception:
+                except Exception:  # nosec B110 -- guardia difensiva UI
                     pass
 
             dialog.accept()
@@ -179,7 +179,7 @@ def _warn_missing_catalog(window):
                 + ".json — uso i messaggi inline.",
                 "WARNING",
             )
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
 def register(window):

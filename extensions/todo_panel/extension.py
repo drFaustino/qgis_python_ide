@@ -218,7 +218,7 @@ class TodoPanelExtension(ExtensionBase):
         if self._cleanup_timer is not None:
             try:
                 self._cleanup_timer.stop()
-            except Exception:
+            except Exception:  # nosec B110 -- guardia difensiva UI
                 pass
 
         self._cleanup_timer = QTimer(self._window)
@@ -241,7 +241,7 @@ class TodoPanelExtension(ExtensionBase):
                 if getattr(tab, "path", None) == path:
                     self._window.tabs.setCurrentIndex(index)
                     return tab
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
         return None
@@ -269,7 +269,7 @@ class TodoPanelExtension(ExtensionBase):
             try:
                 tab.editor.setCursorPosition(line - 1, 0)
                 tab.editor.ensureLineVisible(line - 1)
-            except Exception:
+            except Exception:  # nosec B110 -- guardia difensiva UI
                 pass
 
     def _goto_selected(self):
@@ -305,7 +305,7 @@ class TodoPanelExtension(ExtensionBase):
             if old_dock is not None:
                 try:
                     window.removeDockWidget(old_dock)
-                except Exception:
+                except Exception:  # nosec B110 -- guardia difensiva UI
                     pass
 
             self._dock = QDockWidget(
@@ -384,7 +384,7 @@ class TodoPanelExtension(ExtensionBase):
                         self._action_toggle.setChecked
                     )
 
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
 
@@ -421,7 +421,7 @@ def register(window):
                 "uso i messaggi inline.",
                 "WARNING",
             )
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
 

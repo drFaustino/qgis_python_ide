@@ -193,7 +193,7 @@ class PyQGISLanguageService:
 
             try:
                 obj = getattr(module, name)
-            except Exception:
+            except Exception:  # nosec B112 -- scansione difensiva
                 continue
 
             if inspect.isclass(obj):
@@ -293,7 +293,7 @@ class PyQGISLanguageService:
                     continue
                 try:
                     value = getattr(module, name)
-                except Exception:
+                except Exception:  # nosec B112 -- scansione difensiva
                     continue
                 result.append(Symbol(
                     name=name,
@@ -409,7 +409,7 @@ class PyQGISLanguageService:
 
             try:
                 value = getattr(obj, member_name)
-            except Exception:
+            except Exception:  # nosec B112 -- scansione difensiva
                 continue
 
             kind = "method" if callable(value) else "property"

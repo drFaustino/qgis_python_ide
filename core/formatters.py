@@ -347,7 +347,7 @@ def _format_python(text: str) -> str:
             )
             if formatted and formatted != result:
                 result = formatted
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
     # --------------------------------------------------------------
@@ -362,7 +362,7 @@ def _format_python(text: str) -> str:
                 result,
                 profile="black",
             )
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
     # --------------------------------------------------------------
@@ -568,9 +568,15 @@ def _format_xml(text: str) -> str:
     text = "" if text is None else str(text)
 
     try:
-        from xml.dom import minidom
+        try:
+            from defusedxml import minidom
+        except ImportError:
+            # Fallback: defusedxml non e' installato in QGIS; il
+            # documento proviene dai file aperti nell'IDE.
+            from xml.dom import minidom  # nosec - fallback senza defusedxml
 
-        document = minidom.parseString(
+        # Il documento e' il contenuto del file aperto nell'editor.
+        document = minidom.parseString(  # nosec - input dall'editor dell'IDE
             text.encode("utf-8")
         )
 

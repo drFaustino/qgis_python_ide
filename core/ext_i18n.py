@@ -33,7 +33,7 @@ def detect_language() -> str:
 
         if code in SUPPORTED:
             return code
-    except Exception:
+    except Exception:  # nosec B110 -- guardia difensiva UI
         pass
 
     return DEFAULT_LANGUAGE
@@ -69,7 +69,7 @@ class ExtensionBase:
 
                 if code in SUPPORTED:
                     return code
-            except Exception:
+            except Exception:  # nosec B110 -- guardia difensiva UI
                 pass
 
         return detect_language()

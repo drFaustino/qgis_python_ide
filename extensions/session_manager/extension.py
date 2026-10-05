@@ -36,7 +36,7 @@ class SessionManagerExtension(ExtensionBase):
                 self._window.log.append(
                     f"Session Manager: {message}", level
                 )
-            except Exception:
+            except Exception:  # nosec B110 -- guardia difensiva UI
                 pass
 
     @staticmethod
@@ -210,7 +210,7 @@ def _warn_missing_catalog(window):
                 + ".json — uso i messaggi inline.",
                 "WARNING",
             )
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
 def register(window):

@@ -70,7 +70,9 @@ def open_designer(
         arguments.append(ui_path)
 
     try:
-        subprocess.Popen(
+        # L'eseguibile proviene dai rilevamenti pyuic6/pyside6 del
+        # plugin (shutil.which) ed e' lanciato senza shell.
+        subprocess.Popen(  # nosec B603 - eseguibile rilevato dal plugin, senza shell
             arguments,
             stdin=subprocess.DEVNULL,
             stdout=subprocess.DEVNULL,
@@ -164,7 +166,9 @@ def compile_ui(
     ]
 
     try:
-        result = subprocess.run(
+        # L'eseguibile proviene dai rilevamenti pyuic6/pyside6 del
+        # plugin (shutil.which) ed e' lanciato senza shell.
+        result = subprocess.run(  # nosec B603 - eseguibile rilevato dal plugin, senza shell
             command,
             check=False,
             capture_output=True,

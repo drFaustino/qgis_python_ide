@@ -848,10 +848,17 @@ class QGISPythonAnalyzer:
         source: str,
         filename: str,
     ) -> list[Diagnostic]:
+        # Percorso assoluto risolto via shutil.which: niente PATH
+        # parziale né shell. Il codice analizzato arriva da stdin.
+        executable = shutil.which("ruff")
+
+        if not executable:
+            return []
+
         try:
-            process = subprocess.run(
+            process = subprocess.run(  # nosec B603 - eseguibile risolto con shutil.which, senza shell
                 [
-                    "ruff",
+                    executable,
                     "check",
                     "--output-format",
                     "concise",
@@ -875,9 +882,14 @@ class QGISPythonAnalyzer:
         return self._parse_external(output, "ruff")
 
     def _run_pyflakes(self, source: str) -> list[Diagnostic]:
+        executable = shutil.which("pyflakes")
+
+        if not executable:
+            return []
+
         try:
-            process = subprocess.run(
-                ["pyflakes", "-"],
+            process = subprocess.run(  # nosec B603 - eseguibile risolto con shutil.which, senza shell
+                [executable, "-"],
                 input=source,
                 text=True,
                 capture_output=True,

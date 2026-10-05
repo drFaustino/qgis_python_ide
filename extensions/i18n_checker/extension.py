@@ -254,7 +254,7 @@ class I18nCheckerExtension(ExtensionBase):
                     f"i18n Checker: {self.tr('scan_error')}: {error}",
                     "WARNING",
                 )
-            except Exception:
+            except Exception:  # nosec B110 -- guardia difensiva UI
                 pass
 
     def _show(self, html):
@@ -311,7 +311,7 @@ def _warn_missing_catalog(window):
                 + ".json — uso i messaggi inline.",
                 "WARNING",
             )
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
 def register(window):

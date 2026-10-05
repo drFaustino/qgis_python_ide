@@ -48,7 +48,7 @@ class LocalHistoryExtension(ExtensionBase):
                 self._window.log.append(
                     f"Local History: {message}", "INFO"
                 )
-            except Exception:
+            except Exception:  # nosec B110 -- guardia difensiva UI
                 pass
 
     def _current_path(self):
@@ -169,7 +169,7 @@ class LocalHistoryExtension(ExtensionBase):
                 if path and os.path.exists(path) \
                         and not self._is_excluded(path):
                     paths.add(path)
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
         for path in self._watcher.files():
@@ -350,7 +350,7 @@ def _warn_missing_catalog(window):
                 + ".json — uso i messaggi inline.",
                 "WARNING",
             )
-        except Exception:
+        except Exception:  # nosec B110 -- guardia difensiva UI
             pass
 
 def register(window):
