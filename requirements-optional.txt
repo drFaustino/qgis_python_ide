@@ -1,0 +1,29 @@
+# ---------------------------------------------------------------------------
+# Optional requirements for QGIS Python IDE Pro
+#
+# None of these packages is required: the IDE detects each tool at
+# runtime (shutil.which) and enables the related feature only when the
+# executable is available. Install them with:
+#
+#     pip install -r requirements-optional.txt
+#
+# or pick only the lines you need.
+# ---------------------------------------------------------------------------
+
+# Fast Python linter: used by the code analyzer for live diagnostics.
+# Preferred over pyflakes when both are installed.
+ruff
+
+# Lightweight Python linter: fallback used for live diagnostics when
+# ruff is not installed.
+pyflakes
+
+# pyuic6 (commented out: usually provided by a PyQt6/Qt6 development
+# installation rather than pip). Compiles Qt Designer .ui files to
+# Python code from the integrated Designer.
+# pyuic6
+
+# PySide6 (commented out: large dependency, install only if needed).
+# Provides the alternative tools pyside6-uic (compiles .ui files) and
+# pyside6-designer (standalone Qt Designer used for window preview).
+# pyside6

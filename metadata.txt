@@ -1,0 +1,17 @@
+[general]
+name=QGIS Python IDE Pro
+qgisMinimumVersion=4.0
+qgisMaximumVersion=4.99
+version=1.0.0
+author=Dr. Geol. Faustino Cetraro
+email=geol-faustino@libero.it
+description=A professional, modular Python IDE for QGIS 4 / Qt6: multi-format code editor, dynamic PyQGIS language service, live diagnostics with quick fixes, integrated Qt Designer, Markdown preview, QSS/XML/TXT formatting, snippets, project-wide search, UI translations, and a multilingual extension system.
+about=A fast, JetBrains-inspired IDE for QGIS 4 (Qt6). Edit Python, Markdown, QSS, XML/UI, TXT and config files with syntax highlighting, code folding, contextual completion, type inference and one-click quick fixes powered by a dynamic PyQGIS API index. Includes an integrated Qt Designer, live Markdown preview, QSS/XML/TXT beautifiers, code snippets and wizard, built-in Python console with structured logging, project-wide search, command palette, window layout persistence and full UI localization (IT, EN, DE, ES, FR). A modular extension framework ships with five ready-to-use extensions, each with per-language translation catalogs that follow the IDE language at runtime: Local History (automatic file snapshots with rotation, restore and preview), TODO Control Menu (dock panel scanning the project for TODO/FIXME/XXX/HACK markers with one-click jump-to-line), i18n Checker (cross-references translation keys used in code against the project JSON catalogs, with a warning when no project is open), Session Manager (save, restore and delete sets of open tabs) and Bookmarks (per-line bookmarks with quick navigation).
+category=Development
+experimental=False
+deprecated=False
+repository=https://github.com/drFaustino/qgis_python_ide
+tracker=https://github.com/drFaustino/qgis_python_ide
+homepage=https://github.com/drFaustino/qgis_python_ide
+tags=python,pyqgis,ide,qt6,development,language-service,qss,xml,markdown,extensions,i18n,productivity
+icon=icon.svg

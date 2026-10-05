@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6aa84f"/>
+      <stop offset="0.55" stop-color="#589632"/>
+      <stop offset="1" stop-color="#3f7323"/>
+    </linearGradient>
+    <linearGradient id="win" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b2d33"/>
+      <stop offset="1" stop-color="#1b1c20"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a3d45"/>
+      <stop offset="1" stop-color="#2e3037"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sfondo app icon -->
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#bg)"/>
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="#ffffff" opacity="0.06"/>
+  <path d="M30 8 H98 A22 22 0 0 1 120 30 V34 H8 V30 A22 22 0 0 1 30 8 Z" fill="#ffffff" opacity="0.10"/>
+
+  <!-- Finestra editor -->
+  <rect x="20" y="24" width="88" height="78" rx="10" fill="url(#win)" stroke="#111214" stroke-width="2"/>
+  <!-- Barra del titolo -->
+  <path d="M20 34 a10 10 0 0 1 10 -10 h68 a10 10 0 0 1 10 10 v6 h-88 Z" fill="url(#bar)"/>
+  <circle cx="31" cy="30" r="3" fill="#ff5f57"/>
+  <circle cx="41" cy="30" r="3" fill="#febc2e"/>
+  <circle cx="51" cy="30" r="3" fill="#28c840"/>
+
+  <!-- Righe di codice (sinistra) -->
+  <rect x="30" y="48"  width="34" height="6" rx="3" fill="#3fb27f"/>
+  <rect x="30" y="60"  width="48" height="6" rx="3" fill="#4aa5d8"/>
+  <rect x="30" y="72"  width="26" height="6" rx="3" fill="#8a8f98"/>
+  <rect x="30" y="84"  width="40" height="6" rx="3" fill="#3fb27f" opacity="0.7"/>
+
+  <!-- Cursore giallo lampeggiante (stilizzato) -->
+  <rect x="92" y="82" width="6" height="12" rx="1" fill="#ffd43b"/>
+
+  <!-- Simbolo </> nei colori Python, lato destro -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="86,50 76,64 86,78" stroke="#ffd43b" stroke-width="7"/>
+    <polyline points="100,50 110,64 100,78" stroke="#3776ab" stroke-width="7"/>
+  </g>
+</svg>
