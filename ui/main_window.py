@@ -118,7 +118,7 @@ class IDEMainWindow(QMainWindow):
         self.runner.output.connect(self._runner_output)
         self.runner.finished.connect(self._runner_finished)
 
-        self.setWindowTitle("QGIS Python IDE Pro 1.0.0")
+        self.setWindowTitle("QGIS Python IDE Pro 1.1.0")
         self.setWindowIcon(self.icon("ide"))
 
         self.resize(1720, 1050)
@@ -575,7 +575,7 @@ class IDEMainWindow(QMainWindow):
         self.status_title = QLabel(
             self._t(
                 "app.title_version",
-                "QGIS Python IDE Pro 1.0.0",
+                "QGIS Python IDE Pro 1.1.0",
             )
         )
 
@@ -822,7 +822,7 @@ class IDEMainWindow(QMainWindow):
             "Annulla",
             self._undo,
             "Ctrl+Z",
-            None,
+            "undo",
             self._t("menu.edit", "Modifica"),
         )
 
@@ -831,7 +831,7 @@ class IDEMainWindow(QMainWindow):
             "Ripeti",
             self._redo,
             "Ctrl+Y",
-            None,
+            "redo",
             self._t("menu.edit", "Modifica"),
         )
 
@@ -876,7 +876,7 @@ class IDEMainWindow(QMainWindow):
             "Elimina spazi vuoti",
             self._trim,
             "Ctrl+Shift+W",
-            None,
+            "text",
             self._t("menu.code", "Codice"),
         )
 
@@ -1036,14 +1036,6 @@ class IDEMainWindow(QMainWindow):
             self._t("menu.tools", "Strumenti"),
         )
 
-        self.act_console = A(
-            "console",
-            "Console Python QGIS",
-            self._toggle_console,
-            "Ctrl+Alt+C",
-            "terminal",
-            self._t("menu.tools", "Strumenti"),
-        )
         self.act_reload_api = A(
             "reloadApi",
             "Ricarica librerie e API QGIS",
@@ -1151,7 +1143,6 @@ class IDEMainWindow(QMainWindow):
                 self.act_new_file,
                 self.act_open,
                 self.act_save,
-                self.act_saveall,
                 self.act_saveas,
                 self.act_close,
             ]
@@ -1246,7 +1237,6 @@ class IDEMainWindow(QMainWindow):
                 self.act_snippets,
                 self.act_wizard,
                 self.act_palette,
-                self.act_console,
                 self.act_reload_api,
             ]
         )
@@ -1273,13 +1263,25 @@ class IDEMainWindow(QMainWindow):
 
         self._view_menu = view_menu
 
+        # L'azione nativa del dock resta sincronizzata con la visibilità
+        # del pannello e viene mostrata solo nel menu Visualizza.
+        self.act_console_view = self.console_dock.toggleViewAction()
+        self.act_console_view.setText(
+            self._t("dock.console", "Console Python")
+        )
+        self.act_console_view.setToolTip(
+            self._t("dock.console", "Console Python")
+        )
+        self.act_console_view.setIcon(self.icon("terminal"))
+        self.act_console_view.setShortcut(QKeySequence("Ctrl+Alt+C"))
+
         view_menu.addActions(
             [
                 self.project_dock.toggleViewAction(),
                 self.diag_dock.toggleViewAction(),
                 self.api_dock.toggleViewAction(),
                 self.log_dock.toggleViewAction(),
-                self.console_dock.toggleViewAction(),
+                self.act_console_view,
                 self.find_replace_dock.toggleViewAction(),
             ]
         )
@@ -2020,15 +2022,18 @@ window.i18n and window.log. Qt6/QGIS 4 compatibility: import only from
     def _set_language(self, code):
         self.i18n.set_language(code)
 
-        self.status_msg.setText(
-            f"Lingua: {self.i18n.code()}"
-        )
+        language_text = self._t(
+            "status.language",
+            "Lingua: {language}",
+        ).replace("{language}", self.i18n.code())
+
+        self.status_msg.setText(language_text)
 
         self._retranslate_runtime()
 
     def _retranslate_runtime(self):
         self.setWindowTitle(
-            f"QGIS Python IDE Pro 1.0.0 — {self.i18n.code()}"
+            f"QGIS Python IDE Pro 1.1.0 — {self.i18n.code()}"
         )
         for command_id, action in getattr(self, "_actions", {}).items():
             current = self.commands.get(command_id)
@@ -2045,7 +2050,16 @@ window.i18n and window.log. Qt6/QGIS 4 compatibility: import only from
             button.setText(menu.title())
             button.setToolTip(menu.title())
         if hasattr(self, "console_dock"):
-            self.console_dock.setWindowTitle(self._t("dock.console", "Python Console"))
+            console_title = self._t(
+                "dock.console",
+                "Console Python",
+            )
+            self.console_dock.setWindowTitle(console_title)
+
+            if hasattr(self, "act_console_view"):
+                self.act_console_view.setText(console_title)
+                self.act_console_view.setToolTip(console_title)
+
         if hasattr(self, "console"):
             self.console.retranslate(self._t)
         if hasattr(self, "log"):
@@ -2081,6 +2095,26 @@ window.i18n and window.log. Qt6/QGIS 4 compatibility: import only from
             self.project_search_action.setToolTip(self._t("ui.project_search_button", "Search project"))
         if hasattr(self, "global_search"):
             self.global_search.setPlaceholderText(self._t("ui.global_search", "Search files, symbols or text…"))
+
+        # L'intestazione e il pulsante visibili del pannello Progetto
+        # devono seguire la lingua.
+        if hasattr(self, "project"):
+            self.project.setHeaderLabels(
+                [
+                    self._t(
+                        "ui.project_files",
+                        "Progetto / File",
+                    )
+                ]
+            )
+
+        if hasattr(self, "project_reload_button"):
+            reload_text = self._t(
+                "ui.reload_project",
+                "Ricarica file del progetto",
+            )
+            self.project_reload_button.setText(reload_text)
+            self.project_reload_button.setToolTip(reload_text)
 
         # Retraduci anche le estensioni caricate: ogni modulo può
         # esporre retranslate() che aggiorna testi e icone delle azioni.

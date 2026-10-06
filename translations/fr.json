@@ -34,7 +34,6 @@
   "action.snippets": "Extraits de code",
   "action.wizard": "Assistant de plugin QGIS 4",
   "action.palette": "Palette de commandes",
-  "action.console": "Console Python QGIS",
   "action.reloadApi": "Recharger les bibliothèques et l’API QGIS",
   "action.selfCheck": "Vérifier l’intégrité du plugin",
   "action.saveDockLayout": "Enregistrer la disposition des panneaux",
@@ -100,7 +99,7 @@
   "ui.api_search": "Rechercher dans l’API",
   "dialog.reset_docks_title": "Restaurer les panneaux",
   "dialog.reset_docks_confirm": "Restaurer la disposition initiale des panneaux ?",
-  "app.title_version": "QGIS Python IDE Pro",
+  "app.title_version": "QGIS Python IDE Pro 1.1.0",
   "status.process_ok": "Terminé",
   "status.process_error": "Erreur",
   "ui.language_auto": "Automatique",
@@ -200,5 +199,6 @@
   "wizard.version": "Version :",
   "status.project_saved_files": "Projet enregistré : {count} fichiers mis à jour",
   "tab.close_others": "Fermer les autres",
-  "tab.close_all": "Tout fermer"
+  "tab.close_all": "Tout fermer",
+  "status.language": "Langue : {language}"
 }

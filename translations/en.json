@@ -34,7 +34,6 @@
   "action.snippets": "Snippets",
   "action.wizard": "QGIS 4 plugin wizard",
   "action.palette": "Command Palette",
-  "action.console": "QGIS Python Console",
   "action.reloadApi": "Reload QGIS libraries and API",
   "action.selfCheck": "Check plugin integrity",
   "action.saveDockLayout": "Save panel layout",
@@ -100,7 +99,7 @@
   "ui.api_search": "Search API",
   "dialog.reset_docks_title": "Restore panels",
   "dialog.reset_docks_confirm": "Restore the original panel layout?",
-  "app.title_version": "QGIS Python IDE Pro",
+  "app.title_version": "QGIS Python IDE Pro 1.1.0",
   "status.process_ok": "Completed",
   "status.process_error": "Error",
   "ui.language_auto": "Automatic",
@@ -200,5 +199,6 @@
   "wizard.version": "Version:",
   "status.project_saved_files": "Project saved: {count} files updated",
   "tab.close_others": "Close others",
-  "tab.close_all": "Close all"
+  "tab.close_all": "Close all",
+  "status.language": "Language: {language}"
 }
