@@ -1,6 +1,6 @@
 # QGIS Python IDE Pro
 
-A professional, modular, responsive Python IDE for **QGIS 4 / Qt6**, inspired by the JetBrains experience. First public release: **1.0.0**.
+A professional, modular, responsive Python IDE for **QGIS 4 / Qt6**, inspired by the JetBrains experience. First public release: **1.0.0**. Current release: **1.1.0**.
 
 ## Requirements
 
@@ -101,9 +101,3 @@ See `CHANGELOG.md` for the full release history.
 ## License
 
 See `LICENSE`.
-
-## Interface
-
-<img width="1440" height="855" alt="img1" src="https://github.com/user-attachments/assets/08fddce7-4fe0-4542-a4e6-1a2652d10f14" />
-
-<img width="1441" height="855" alt="img2" src="https://github.com/user-attachments/assets/d3b30f82-ab0d-4577-8552-abe88e647943" />

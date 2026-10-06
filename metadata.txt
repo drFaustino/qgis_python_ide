@@ -2,7 +2,7 @@
 name=QGIS Python IDE Pro
 qgisMinimumVersion=4.0
 qgisMaximumVersion=4.99
-version=1.0.0
+version=1.1.0
 author=Dr. Geol. Faustino Cetraro
 email=geol-faustino@libero.it
 description=A professional, modular Python IDE for QGIS 4 / Qt6: multi-format code editor, dynamic PyQGIS language service, live diagnostics with quick fixes, integrated Qt Designer, Markdown preview, QSS/XML/TXT formatting, snippets, project-wide search, UI translations, and a multilingual extension system.

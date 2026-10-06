@@ -34,7 +34,6 @@
   "action.snippets": "Fragmentos de código",
   "action.wizard": "Asistente de complementos de QGIS 4",
   "action.palette": "Paleta de comandos",
-  "action.console": "Consola Python de QGIS",
   "action.reloadApi": "Recargar bibliotecas y API de QGIS",
   "action.selfCheck": "Comprobar integridad del complemento",
   "action.saveDockLayout": "Guardar disposición de paneles",
@@ -100,7 +99,7 @@
   "ui.api_search": "Buscar en la API",
   "dialog.reset_docks_title": "Restaurar paneles",
   "dialog.reset_docks_confirm": "¿Restaurar la disposición original de los paneles?",
-  "app.title_version": "QGIS Python IDE Pro 2.2.1",
+  "app.title_version": "QGIS Python IDE Pro 1.1.0",
   "status.process_ok": "Completado",
   "status.process_error": "Error",
   "ui.language_auto": "Automático",
@@ -200,5 +199,6 @@
   "wizard.version": "Versión:",
   "status.project_saved_files": "Proyecto guardado: {count} archivos actualizados",
   "tab.close_others": "Cerrar las demás",
-  "tab.close_all": "Cerrar todo"
+  "tab.close_all": "Cerrar todo",
+  "status.language": "Idioma: {language}"
 }

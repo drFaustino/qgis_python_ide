@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.0 — Localization and menu cleanup
+
+- Fixed the Project panel “Reload project files” button so its label and tooltip update immediately when the UI language changes.
+- Fixed the Project panel “Project files” tree header so it also updates when the UI language changes.
+- Fixed the status-bar language label so it is translated when a new UI language is selected.
+- Removed the duplicate QGIS Python Console entry from the Tools menu; Python Console remains available in the View menu, preserving the Ctrl+Alt+C shortcut.
+- Added icons for Undo, Redo and Remove trailing whitespace.
+- Removed Save All from the File menu to avoid duplication with Project → Save Project.
+- Added the missing project reload and project save strings to the Italian, English, German, Spanish and French translation catalogs.
+- Removed the obsolete console action translation key.
+- Updated the plugin version to 1.1.0.
+
 ## 1.0.0 — First public release
 
 - First public release of the plugin for QGIS 4 / Qt6.
