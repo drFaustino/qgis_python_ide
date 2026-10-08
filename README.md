@@ -101,3 +101,11 @@ See `CHANGELOG.md` for the full release history.
 ## License
 
 See `LICENSE`.
+
+## Interfaces
+
+<img width="1324" height="853" alt="img1" src="https://github.com/user-attachments/assets/429c6c81-2a17-4640-b17e-b1ba8b677f8f" />
+
+<img width="1326" height="857" alt="img2" src="https://github.com/user-attachments/assets/5f92b5f3-6c22-4c39-8b42-586f3ce6beed" />
+
+<img width="1327" height="857" alt="img3" src="https://github.com/user-attachments/assets/b92e4c3c-c3bb-49e6-8ca2-cfd4a96f7811" />
